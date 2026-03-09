@@ -1,0 +1,21 @@
+# User secrets — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# User-specific Claude Code settings
+.claude/settings.local.json
+
+# Local data directory
+.10x/
+
+# Node
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+bash.exe.stackdump
+
+# npm pack artifacts
+*.tgz

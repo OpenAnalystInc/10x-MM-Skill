@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "marketing-manager": {
+      "type": "http",
+      "url": "https://api.10x.in/mcp/<YOUR_HANDLE>/mcp",
+      "headers": {
+        "Authorization": "Bearer <YOUR_PAT_patv1_xxx>",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}

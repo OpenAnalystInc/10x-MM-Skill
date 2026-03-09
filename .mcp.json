@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "link-platform-mcp": {
+      "type": "http",
+      "url": "https://anit.mcp.10x.in/mcp",
+      "headers": {
+        "Authorization": "Bearer patv1_tok_232cda3518b81a201036.2JlUsOV7smWRU0mxqgpdWlPTeOjYrS9R",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}

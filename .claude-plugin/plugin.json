@@ -1,0 +1,20 @@
+{
+  "name": "10x-marketing-manager",
+  "description": "Claude Code plugin for the Marketing Manager platform — 37 Link Platform MCP tools for strategy, pages, links, analytics, tracking, routing, and deployment on 10x.in. Includes 25+ skills, 7 agent roles, and 5 slash commands.",
+  "version": "4.0.0",
+  "author": {
+    "name": "10x.in",
+    "email": "hello@10x.in"
+  },
+  "homepage": "https://10x.in",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "mcp",
+    "marketing-manager",
+    "marketing-automation",
+    "landing-pages",
+    "10x",
+    "ai-marketing"
+  ]
+}
