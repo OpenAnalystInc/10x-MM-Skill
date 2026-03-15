@@ -1,0 +1,36 @@
+<!-- Testimonials Section -->
+<section class="testimonials section" id="testimonials" data-section="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{#copy}}{{testimonialsHeadline}}{{/copy}}{{^copy}}What Our Customers Say{{/copy}}</h2>
+    </div>
+    <div class="testimonials-grid">
+      {{#testimonials}}
+      <blockquote class="testimonial-card animate-on-scroll">
+        <div class="testimonial-stars" aria-label="5 star rating">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--color-warning)"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33-3.87-3.77 5.34-.78z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--color-warning)"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33-3.87-3.77 5.34-.78z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--color-warning)"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33-3.87-3.77 5.34-.78z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--color-warning)"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33-3.87-3.77 5.34-.78z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--color-warning)"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.44.91-5.33-3.87-3.77 5.34-.78z"/></svg>
+        </div>
+        <p class="testimonial-quote">"{{quote}}"</p>
+        <footer class="testimonial-author">
+          {{#avatar}}
+          <img src="{{avatar}}" alt="" width="48" height="48" class="testimonial-avatar" loading="lazy">
+          {{/avatar}}
+          {{^avatar}}
+          <div class="testimonial-avatar-placeholder" aria-hidden="true">
+            <span>{{initials}}</span>
+          </div>
+          {{/avatar}}
+          <div>
+            <cite class="testimonial-name">{{name}}</cite>
+            <p class="testimonial-role">{{role}}{{#company}}, {{company}}{{/company}}</p>
+          </div>
+        </footer>
+      </blockquote>
+      {{/testimonials}}
+    </div>
+  </div>
+</section>

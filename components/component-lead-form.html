@@ -1,0 +1,33 @@
+<!-- Lead Capture Form Component -->
+<div class="lead-form">
+  {{#formTitle}}<h3 class="lead-form-title">{{formTitle}}</h3>{{/formTitle}}
+  {{^formTitle}}<h3 class="lead-form-title">Get Started Free</h3>{{/formTitle}}
+
+  <form id="lead-form" toolname="lead-capture" tooldescription="Lead capture form submission">
+    <div class="form-group">
+      <label for="lead-name" class="form-label">Full Name</label>
+      <input type="text" id="lead-name" name="name" class="form-input"
+             placeholder="John Doe" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lead-email" class="form-label">Email Address</label>
+      <input type="email" id="lead-email" name="email" class="form-input"
+             placeholder="john@company.com" required>
+    </div>
+
+    {{#hasPhone}}
+    <div class="form-group">
+      <label for="lead-phone" class="form-label">Phone (optional)</label>
+      <input type="tel" id="lead-phone" name="phone" class="form-input"
+             placeholder="+1 (555) 000-0000">
+    </div>
+    {{/hasPhone}}
+
+    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+      {{ctaPrimary}}
+    </button>
+
+    <p class="form-note">{{#ctaReassurance}}{{ctaReassurance}}{{/ctaReassurance}}{{^ctaReassurance}}No credit card required. Free forever.{{/ctaReassurance}}</p>
+  </form>
+</div>

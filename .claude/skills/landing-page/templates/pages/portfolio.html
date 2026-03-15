@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{oneLiner}}">
+  <title>{{projectName}}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family={{fontHeadingEncoded}}:wght@400;500;600;700&family={{fontBodyEncoded}}:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  {{> section-navbar}}
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero hero--centered" id="hero" data-section="hero">
+      <div class="container">
+        <h1 class="hero-title">{{headline}}</h1>
+        <p class="hero-subtitle">{{subheadline}}</p>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio section" id="portfolio" data-section="portfolio">
+      <div class="container">
+        <div class="portfolio-grid">
+          {{#portfolioItems}}
+          <article class="portfolio-card animate-on-scroll">
+            <div class="portfolio-image">
+              <img src="{{image}}" alt="{{title}}" width="400" height="300" loading="lazy">
+            </div>
+            <div class="portfolio-info">
+              <h3 class="portfolio-title">{{title}}</h3>
+              <p class="portfolio-desc">{{description}}</p>
+              {{#link}}
+              <a href="{{link}}" class="portfolio-link"
+                 toolname="portfolio-{{slug}}"
+                 tooldescription="View {{title}} project">View Project</a>
+              {{/link}}
+            </div>
+          </article>
+          {{/portfolioItems}}
+        </div>
+      </div>
+    </section>
+
+    {{#hasTestimonials}}
+    {{> section-testimonials}}
+    {{/hasTestimonials}}
+
+    {{> section-cta}}
+  </main>
+
+  {{> section-footer}}
+
+  <script src="https://cdn.jsdelivr.net/npm/webmcp@latest/webmcp.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

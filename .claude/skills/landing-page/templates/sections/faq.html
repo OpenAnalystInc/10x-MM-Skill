@@ -1,0 +1,21 @@
+<!-- FAQ Section -->
+<section class="faq section" id="faq" data-section="faq">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{#copy}}{{faqHeadline}}{{/copy}}{{^copy}}Frequently Asked Questions{{/copy}}</h2>
+    </div>
+    <div class="faq-list" role="list">
+      {{#faqItems}}
+      <details class="faq-item animate-on-scroll" role="listitem">
+        <summary class="faq-question">
+          <span>{{question}}</span>
+          <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>{{answer}}</p>
+        </div>
+      </details>
+      {{/faqItems}}
+    </div>
+  </div>
+</section>

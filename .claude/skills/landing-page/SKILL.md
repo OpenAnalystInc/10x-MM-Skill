@@ -34,9 +34,67 @@ This is **10x Team's proprietary landing page methodology**.
 
 ---
 
-## SKILL DIRECTORY
+## PROGRAM-FIRST ARCHITECTURE (v5.0)
 
-This skill's files are located relative to this SKILL.md file:
+**AI writes DATA (JSON specs). CODE writes OUTPUT (HTML/CSS/JS/PDF).**
+
+This is the fundamental shift from v3: instead of AI generating full HTML from scratch (token-expensive, model-dependent, inconsistent), AI fills in structured JSON specs and the build pipeline renders everything from templates.
+
+### Build Pipeline Commands
+
+```bash
+# Initialize project
+node .claude/skills/landing-page/scripts/init-project.js <name>
+
+# Full build (template → minify → inline → pdf)
+node src/build.js <name> --all
+
+# Individual steps
+node src/template-engine.js <name> [template]   # Render from templates
+node src/minify.js <name>                        # Minify HTML/CSS/JS
+node src/inline.js <name>                        # Create single HTML file
+node src/audit-runner.js <name>                  # Run 30+ programmatic checks
+node src/pdf.js --project <name>                 # Generate PDF (Puppeteer)
+node src/pdf.js --md <file.md> [output.pdf]      # Markdown → PDF
+```
+
+### What AI Produces (JSON Specs)
+
+```
+projects/<name>/
+├── requirements/brief.json          ← Project metadata
+├── copy/page-copy.json              ← All page copy (structured JSON)
+├── design/colors.json               ← Color palette
+└── design/typography.json           ← Font choices + scale
+```
+
+### What CODE Produces (From Templates)
+
+```
+projects/<name>/build/
+├── index.html                       ← Rendered from template
+├── css/styles.css                   ← Generated from design tokens
+├── js/main.js                       ← Standard interactions
+└── <name>-inline.html               ← Single deployable file
+```
+
+### Available Page Templates
+
+| Template | Sections | Best For |
+|----------|----------|----------|
+| `landing` | navbar + hero + features + testimonials + FAQ + CTA + footer | SaaS, agencies, most pages |
+| `lead-magnet` | hero-with-form + features + testimonials | Lead capture, downloads |
+| `coming-soon` | centered hero + email form | Pre-launch, waitlist |
+| `portfolio` | navbar + hero + portfolio grid + testimonials + CTA + footer | Portfolio, showcase |
+
+### Spec Reference Files
+
+- Copy format: `templates/specs/copy-spec.json`
+- Design format: `templates/specs/design-spec.json`
+
+---
+
+## SKILL DIRECTORY
 
 ```
 .claude/skills/landing-page/             ← YOU ARE HERE
@@ -59,24 +117,48 @@ This skill's files are located relative to this SKILL.md file:
 │   ├── accessibility-checklist.md
 │   ├── seo-checklist.md
 │   ├── testing-scripts.md
-│   ├── domain-templates.md              ← NEW: 12 domain categories
-│   ├── cro-principles.md                ← NEW: CRO frameworks
-│   ├── analytics-setup.md               ← NEW: GA4, pixels, events
-│   ├── funnel-patterns.md               ← NEW: Funnel types
-│   ├── lead-capture.md                  ← NEW: Forms, popups
-│   ├── competitor-analysis.md           ← NEW: Teardown framework
-│   ├── speed-optimization.md            ← NEW: Core Web Vitals
-│   ├── abtest-framework.md              ← NEW: A/B testing
-│   └── js-injection.md                  ← NEW: Script injection
-└── scripts/                             ← 8 generator scripts (Node.js)
-    ├── init-project.js
-    ├── generate-project.js
-    ├── generate-html.js
-    ├── generate-react.js
-    ├── generate-nextjs.js
-    ├── generate-astro.js
-    ├── generate-vue.js
-    └── list-projects.js
+│   ├── domain-templates.md              ← 12 domain categories
+│   ├── cro-principles.md                ← CRO frameworks
+│   ├── analytics-setup.md               ← GA4, pixels, events
+│   ├── funnel-patterns.md               ← Funnel types
+│   ├── lead-capture.md                  ← Forms, popups
+│   ├── competitor-analysis.md           ← Teardown framework
+│   ├── speed-optimization.md            ← Core Web Vitals
+│   ├── abtest-framework.md              ← A/B testing
+│   └── js-injection.md                  ← Script injection
+├── templates/                           ← HTML/CSS/JS templates (NEW in v5)
+│   ├── pages/                           ← Full page templates
+│   │   ├── landing.html                 ← Standard landing page
+│   │   ├── lead-magnet.html             ← Lead capture page
+│   │   ├── coming-soon.html             ← Pre-launch page
+│   │   └── portfolio.html               ← Portfolio page
+│   ├── sections/                        ← Reusable section partials
+│   │   ├── navbar.html
+│   │   ├── hero.html
+│   │   ├── features.html
+│   │   ├── testimonials.html
+│   │   ├── faq.html
+│   │   ├── cta.html
+│   │   └── footer.html
+│   ├── css/
+│   │   └── base.css                     ← Full design system (token-driven)
+│   ├── js/
+│   │   └── base.js                      ← Standard interactions
+│   └── specs/                           ← Reference JSON formats
+│       ├── copy-spec.json               ← What AI fills for copy
+│       └── design-spec.json             ← What AI fills for design
+├── scripts/                             ← Generator scripts (Node.js)
+│   ├── init-project.js
+│   ├── generate-project.js
+│   ├── generate-html.js
+│   ├── generate-react.js
+│   ├── generate-nextjs.js
+│   ├── generate-astro.js
+│   ├── generate-vue.js
+│   └── list-projects.js
+└── ../../components/                    ← Reusable component library
+    ├── component-lead-form.html
+    └── component-pricing.html
 ```
 
 **Path Resolution**: When loading agent or knowledge files, resolve paths relative to this SKILL.md. For example:
@@ -665,34 +747,41 @@ Example agent progress structure:
    - Load `agents/project-manager.md`
    - Follow its coordination protocol
 
-2. **Execute Agent Pipeline**
+2. **Execute Agent Pipeline (PROGRAM-FIRST)**
    ```
-   Discovery Agent → requirements/brief.json
+   Discovery Agent → requirements/brief.json (JSON)
         ↓
    [PM Review & Approve]
         ↓
-   Copywriting Agent → copy/headlines.md, copy/page-copy.md
+   Copywriting Agent → copy/page-copy.json (STRUCTURED JSON, not markdown!)
         ↓
    [PM Review & Approve]
         ↓
-   Design Agent → design/strategy.md, design/colors.json, design/typography.json
+   Design Agent → design/colors.json + design/typography.json (JSON tokens)
         ↓
    [PM Review & Approve]
         ↓
-   Build Agent → build/index.html, build/css/styles.css, build/js/main.js
+   BUILD PIPELINE (CODE, not AI):
+     node src/build.js <name> --all
+     This runs: template-engine → minify → inline → pdf
+     Output: build/index.html, build/css/styles.css, build/js/main.js
         ↓
-   [PM Review & Approve]
+   AUDIT (CODE, not AI):
+     node src/audit-runner.js <name>
+     Output: 30+ real pass/fail checks, score, grade
         ↓
-   QA Agent → testing/test-kit.md
+   [PM Review audit results]
         ↓
-   [PM Review & Approve]
+   QA Agent → review audit report + subjective quality check
         ↓
-   Launch Agent → launch/checklist.md, launch/maintenance.md
-        ↓
-   [PM Final Review]
+   Launch Agent → deploy via site-deployments API
         ↓
    Return to Main Skill
    ```
+
+   **KEY CHANGE**: The Build Agent no longer writes HTML from scratch.
+   It runs `node src/build.js` which renders templates from JSON specs.
+   The QA Agent runs `node src/audit-runner.js` for real checks.
 
 3. **Revision Protocol**
    - If agent output doesn't match user requirements

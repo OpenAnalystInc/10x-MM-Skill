@@ -1,0 +1,31 @@
+{
+  "$schema": "Design specification for template engine. AI fills this JSON; code applies the design.",
+  "brand": {
+    "primary": "#2563eb",
+    "primaryLight": "#3b82f6",
+    "primaryDark": "#1d4ed8"
+  },
+  "neutral": {
+    "background": "#ffffff",
+    "surface": "#f8fafc",
+    "border": "#e2e8f0",
+    "textPrimary": "#1e293b",
+    "textSecondary": "#64748b"
+  },
+  "accent": {
+    "success": "#22c55e",
+    "warning": "#f59e0b",
+    "error": "#ef4444"
+  },
+  "fonts": {
+    "heading": "Inter",
+    "body": "Inter"
+  },
+  "scale": {
+    "h1": "clamp(2.5rem, 5vw, 4rem)",
+    "h2": "clamp(2rem, 4vw, 3rem)",
+    "h3": "clamp(1.5rem, 3vw, 2rem)",
+    "body": "1rem",
+    "small": "0.875rem"
+  }
+}

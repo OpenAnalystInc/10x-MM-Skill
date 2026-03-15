@@ -1,0 +1,29 @@
+<!-- Navigation -->
+<nav class="nav" role="navigation" id="navbar" data-section="navbar">
+  <div class="nav-container container">
+    <a href="/" class="nav-logo" toolname="nav-home" tooldescription="Navigate to homepage">
+      <span class="logo-text">{{projectName}}</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links" role="list">
+        {{#navItems}}
+        <li><a href="{{href}}" toolname="nav-{{id}}" tooldescription="Navigate to {{label}}">{{label}}</a></li>
+        {{/navItems}}
+        {{^navItems}}
+        <li><a href="#features" toolname="nav-features" tooldescription="Navigate to features">Features</a></li>
+        <li><a href="#testimonials" toolname="nav-testimonials" tooldescription="Navigate to testimonials">Testimonials</a></li>
+        <li><a href="#faq" toolname="nav-faq" tooldescription="Navigate to FAQ">FAQ</a></li>
+        {{/navItems}}
+      </ul>
+      <a href="#cta" class="btn btn-primary nav-cta"
+         toolname="nav-cta" tooldescription="Navigate to call to action">{{ctaPrimary}}</a>
+    </div>
+  </div>
+</nav>

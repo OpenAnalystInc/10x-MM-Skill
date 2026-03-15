@@ -1,0 +1,29 @@
+<!-- Hero Section -->
+<section class="hero section" id="hero" data-section="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">{{headline}}</h1>
+      <p class="hero-subtitle">{{subheadline}}</p>
+      <div class="hero-cta">
+        <a href="#cta" class="btn btn-primary btn-lg"
+           toolname="hero-cta-primary" tooldescription="Primary call to action">{{ctaPrimary}}</a>
+        <a href="#features" class="btn btn-secondary"
+           toolname="hero-cta-secondary" tooldescription="Secondary call to action">{{ctaSecondary}}</a>
+      </div>
+      {{#hasHeroProof}}
+      <div class="hero-proof">
+        <p class="proof-text">{{heroProof}}</p>
+      </div>
+      {{/hasHeroProof}}
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-placeholder" aria-hidden="true">
+        <svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="400" rx="12" fill="var(--color-surface)"/>
+          <rect x="40" y="40" width="520" height="320" rx="8" fill="var(--color-border)" opacity="0.5"/>
+          <text x="300" y="210" text-anchor="middle" fill="var(--color-text-secondary)" font-size="16" font-family="var(--font-body)">Product Image</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

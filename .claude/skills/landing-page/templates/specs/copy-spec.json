@@ -1,0 +1,50 @@
+{
+  "$schema": "Copy specification for template engine. AI fills this JSON; code builds the page.",
+  "headline": "Your main headline here",
+  "subheadline": "Supporting text that expands on the headline",
+  "ctaPrimary": "Get Started Free",
+  "ctaSecondary": "See How It Works",
+  "heroProof": "Join 10,000+ companies already using this",
+  "featuresHeadline": "Everything You Need",
+  "featuresSubtitle": "Optional subtitle for features section",
+  "features": [
+    {
+      "title": "Feature Name",
+      "description": "One sentence explaining the benefit",
+      "icon": ""
+    }
+  ],
+  "testimonialsHeadline": "Loved by Teams Everywhere",
+  "testimonials": [
+    {
+      "quote": "The actual testimonial quote text",
+      "name": "Full Name",
+      "role": "Job Title",
+      "company": "Company Name",
+      "initials": "FN",
+      "avatar": ""
+    }
+  ],
+  "faqHeadline": "Frequently Asked Questions",
+  "faqItems": [
+    {
+      "question": "The question?",
+      "answer": "The answer."
+    }
+  ],
+  "ctaHeadline": "Ready to Get Started?",
+  "ctaText": "Join thousands of happy customers today.",
+  "ctaButton": "Start Free Trial",
+  "ctaReassurance": "No credit card required. Cancel anytime.",
+  "footerText": "Building the future, one page at a time.",
+  "pricingHeadline": "Simple Pricing",
+  "pricingSubtitle": "",
+  "pricingPlans": [],
+  "benefits": {
+    "items": [
+      { "text": "Benefit one" },
+      { "text": "Benefit two" },
+      { "text": "Benefit three" }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+<!-- Pricing Section Component -->
+<section class="pricing section" id="pricing" data-section="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{#copy}}{{pricingHeadline}}{{/copy}}{{^copy}}Simple, Transparent Pricing{{/copy}}</h2>
+      {{#copy}}{{#pricingSubtitle}}<p class="section-subtitle">{{pricingSubtitle}}</p>{{/pricingSubtitle}}{{/copy}}
+    </div>
+
+    <div class="pricing-grid">
+      {{#pricingPlans}}
+      <div class="pricing-card {{#featured}}pricing-card--featured{{/featured}} animate-on-scroll">
+        {{#featured}}<div class="pricing-badge">Most Popular</div>{{/featured}}
+        <h3 class="pricing-name">{{name}}</h3>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">{{price}}</span>
+          <span class="pricing-period">/{{period}}</span>
+        </div>
+        <p class="pricing-desc">{{description}}</p>
+        <ul class="pricing-features">
+          {{#features}}
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--color-success)"><path d="M13.333 4L6 11.333 2.667 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            {{.}}
+          </li>
+          {{/features}}
+        </ul>
+        <a href="{{#ctaLink}}{{ctaLink}}{{/ctaLink}}{{^ctaLink}}#{{/ctaLink}}" class="btn {{#featured}}btn-primary{{/featured}}{{^featured}}btn-secondary{{/featured}} btn-lg" style="width: 100%;"
+           toolname="pricing-{{slug}}" tooldescription="Select {{name}} plan">
+          {{#ctaText}}{{ctaText}}{{/ctaText}}{{^ctaText}}Get Started{{/ctaText}}
+        </a>
+      </div>
+      {{/pricingPlans}}
+    </div>
+  </div>
+</section>

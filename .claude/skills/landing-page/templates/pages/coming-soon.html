@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{oneLiner}}">
+  <title>{{projectName}} — Coming Soon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family={{fontHeadingEncoded}}:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="coming-soon-page">
+  <main id="main" class="coming-soon">
+    <div class="container coming-soon-container">
+      <div class="coming-soon-content">
+        <h1 class="coming-soon-title">{{headline}}</h1>
+        <p class="coming-soon-subtitle">{{subheadline}}</p>
+
+        <form class="coming-soon-form" id="notify-form"
+              toolname="notify-signup"
+              tooldescription="Email notification signup for launch">
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Enter your email"
+                   required class="form-input" aria-label="Email address">
+            <button type="submit" class="btn btn-primary">{{ctaPrimary}}</button>
+          </div>
+          <p class="form-note">{{ctaReassurance}}</p>
+        </form>
+
+        {{#hasHeroProof}}
+        <p class="coming-soon-proof">{{heroProof}}</p>
+        {{/hasHeroProof}}
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/webmcp@latest/webmcp.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
